@@ -62,7 +62,7 @@ class ecsServiceRestart(object):
             memory = ""
 
         if fargate == False:
-            print(taskDefinitionDescription)
+            ##print(taskDefinitionDescription)
             response = self.client.register_task_definition(
             family=taskDefinitionDescription['taskDefinition']['family'],
             taskRoleArn=taskRoleArn,
@@ -113,6 +113,7 @@ class ecsServiceRestart(object):
 
             #Describe taskDefinition
             taskDefinitionDescription = self.client.describe_task_definition(taskDefinition=taskDefinition)
+
             #Clone last taskDefinition
             response = self.registerTaskDefinition(taskDefinitionDescription)
 
