@@ -8,7 +8,7 @@ class ecsServiceRestart(object):
 
     def __init__(self):
 
-        self.client = boto3.client('ecs',region_name="us-east-1")
+        self.client = boto3.client('ecs',region_name="us-west-2")
 
 
     def returnServiceTaskDefinition(self, service, cluster):
@@ -62,9 +62,9 @@ class ecsServiceRestart(object):
             memory = ""
 
         if fargate == False:
+            print(taskDefinitionDescription)
             response = self.client.register_task_definition(
             family=taskDefinitionDescription['taskDefinition']['family'],
-            networkMode=taskDefinitionDescription['taskDefinition']['networkMode'],
             taskRoleArn=taskRoleArn,
             executionRoleArn=executionRoleArn,
             containerDefinitions=taskDefinitionDescription['taskDefinition']['containerDefinitions'],

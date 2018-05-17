@@ -7,7 +7,7 @@ from moto import mock_ecs
 
 @mock_ecs
 def test_returnServiceTaskDefinition():
-    client = boto3.client('ecs', region_name='us-east-1')
+    client = boto3.client('ecs', region_name='us-west-2')
     _ = client.create_cluster(
         clusterName='test_ecs_cluster'
     )
@@ -43,7 +43,7 @@ def test_returnServiceTaskDefinition():
 
 @mock_ecs
 def test_registerTaskDefinition():
-    client = boto3.client('ecs', region_name='us-east-1')
+    client = boto3.client('ecs', region_name='us-west-2')
 
     ecs = ecsServiceRestart()
     taskDefinitionDescription = {}
@@ -58,7 +58,7 @@ def test_registerTaskDefinition():
 
 @mock_ecs
 def test_updateService():
-    client = boto3.client('ecs', region_name='us-east-1')
+    client = boto3.client('ecs', region_name='us-west-2')
     _ = client.create_cluster(
         clusterName='test_ecs_cluster'
     )
